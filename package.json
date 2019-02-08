@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/autumnkelleyfabulous/lirinodeapp#readme",
   "dependencies": {
+    "bandsintown": "^1.0.1",
     "dotenv": "^6.2.0",
     "moment": "^2.24.0",
     "node-spotify-api": "^1.0.7"
