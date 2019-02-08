@@ -15,7 +15,8 @@ var spotify = new Spotify(keys.spotify);
 var request = require('request');
 var movieName = process.argv[3];
 var liriReturn = process.argv[2];
-
+var moment = require('moment');
+var concertThis =  title
 
 // dets
 var title = process.argv[3];
@@ -30,10 +31,12 @@ for (var i = 2; i < nodeAargs.length; i++) {
         title += nodeAargs[i];
     }
 }
-console.log("I Will Posses Your Heart")
 // start
-function liriBot(concert, spotify, movie) {
-    // var command = process.argv[2];
+console.log("I Will Posses Your Heart")
+
+function liriBot(spotify, movie, concert) {
+    var liriReturn = process.argv[2];
+    // CALL LIRI
 
     switch (liriReturn) {
 
@@ -46,9 +49,14 @@ function liriBot(concert, spotify, movie) {
             moviethis();
             break;
 
+            // can't get concerts to work
+        // case "concert-this"
+        //     concert-This();
+        //     break;
+
         default: console.log("spotify-this-song");
             console.log("movie-this");
-
+            // console.log("concert-this");
     }
 }
 // SpotifyThisSong
@@ -104,14 +112,15 @@ function spotifyThisSong(trackName) {
         })
 }
 
-liriBot(spotify);
+    new liriBot(spotify);
 
 
 // OMDB MOVIE API-MOVIE THIS
 var moviethis = new liriBot()
 function movieThis() {
+
     var nodeArgs = process.argv;
-    var queryUrl = "https://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=trilogy";
+    var queryUrl = axios.get("https://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=trilogy");
     request(queryUrl, function (error, response, body) {
         if (error && response, statusCode === 200) {
             console.log("anything")
@@ -150,16 +159,75 @@ function movieThis() {
 
 if (movieName === "") {
     movie.search({
-        type: "its on Netflix!",
-        query: "Mr.Nobody"
-    })
-    console.log(moviethis);
-    console.log('');
-}
-else {
-    console.log("Mr.Nobody");
-}
+        // var queryUrl = axios.get("http://www.omdbapi.com/?t=Mr+nobody&y=&plot=short&apikey=trilogy").then(
+            function (response) {
+                // type: "its on Netflix!",
+                response: " Watch Mr.Nobody, It's on Netflix!"
+            }
+        })
+    // console.log(moviethis),
+    //     console.log(''),
+    // }
+// else {
+//             console.log("Mr.Nobody"),
+//         }
+   new liriBot(movieName);
 
+    // var concertThis = new liriBot(),
+    // function concertThis(title) {
 
+    //   var queryUrl = ("https://rest.bandsintown.com/artists/" + title + "/events?app_id=codingbootcamp&date=upcoming").then(
+    //       axios.get(queryURL)
+    //                   .then  function (response) {
+    //             console.log("-------------------------");
+    //             console.log(response.data[0].lineup);
+    //             console.log("-------------------------");
+    //             console.log(response.data[0].venue.name);
+    //             console.log(response.data[0].venue.city);
+    //             console.log(response.data[0].datetime);
+    //             console.log("-------------------------");
+    //             console.log(response.data[1].venue.name);
+    //             console.log(response.data[1].venue.city);
+    //             console.log(response.data[1].datetime);
+    //             console.log("-------------------------");
+    //             console.log(response.data[2].venue.name);
+    //             console.log(response.data[2].venue.city);
+    //             console.log(response.data[2].datetime);
+    //             console.log("-------------------------");
 
-liriBot(moviethis);
+    //             console.log("concertThis: + moment.format('MM/DD/YY");
+    //         }
+            
+    //   )
+    //     }
+      
+    //     // var queryURL = "https://rest.bandsintown.com/artists/" + title + "/events?app_id=codingbootcamp&date=upcoming";
+    //     // // This line is just to help us debug against the actual URL.
+    //     // console.log(queryURL),
+
+    //     // if(title = "") {
+
+    //        var queryUrl = axios.get("https://rest.bandsintown.com/artists/Chris%20Stapleton/events?app_id=codingbootcamp&date=upcoming").then(
+    //             function (response) {
+    //                 console.log("-------------------------");
+    //                 console.log("There was no input, so heres a suggestion!");
+    //                 console.log(response.data[0].lineup);
+    //                 console.log("-------------------------");
+    //                 console.log(response.data[0].venue.name);
+    //                 console.log(response.data[0].venue.city);
+    //                 console.log(response.data[0].datetime);
+    //                 console.log("-------------------------");
+    //                 console.log(response.data[1].venue.name);
+    //                 console.log(response.data[1].venue.city);
+    //                 console.log(response.data[1].datetime);
+    //                 console.log("-------------------------");
+    //                 console.log(response.data[2].venue.name);
+    //                 console.log(response.data[2].venue.city);
+    //                 console.log(response.data[2].datetime);
+    //                 console.log("-------------------------");
+
+    //             } 
+    
+    //         );
+    //     }
+    }
